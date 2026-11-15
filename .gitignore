@@ -1,0 +1,160 @@
+# Secrets and environment — NEVER commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+backend/.env
+backend/.env.*
+!backend/.env.example
+frontend/.env
+frontend/.env.*
+!frontend/.env.local.example
+!frontend/.env.example
+
+# Python / backend
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+.venv.*/
+virtualenv/
+
+# Testing / type-checking / lint caches
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Jupyter (in case of notebooks during forensics work)
+.ipynb_checkpoints/
+
+# Node / frontend (Next.js)
+node_modules/
+.pnp
+.pnp.js
+
+# Build output
+.next/
+out/
+build/
+dist/
+.turbo/
+.swc/
+*.tsbuildinfo
+next-env.d.ts
+
+# npm / yarn / pnpm logs and caches
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm/
+.yarn/
+.pnpm-store/
+
+# Vercel
+.vercel
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# IDE / editors
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json.example
+!.vscode/launch.json.example
+.idea/
+*.iml
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Operating system
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Local artifacts you may generate during development
+# Media test fixtures downloaded locally
+backend/tests/fixtures/media/
+!backend/tests/fixtures/media/.gitkeep
+
+# Local object-storage emulator dumps
+localstack/
+minio-data/
+
+# Downloaded ML models (large binaries, never commit)
+backend/models/
+backend/.cache/
+.cache/
+huggingface/
+~/.cache/huggingface/
+*.pt
+*.pth
+*.onnx
+*.safetensors
+*.bin
+
+# Generated heatmaps / temp uploads
+backend/tmp/
+backend/uploads/
+backend/temp/
+tmp/
+temp/
+*.log
+
+# Alembic-generated SQL dumps (keep migration files, ignore ad-hoc dumps)
+backend/alembic/*.sql
+
+# OS/editor backup files
+*.bak
+*.orig
+*.rej
+
+# Coverage / reports
+coverage/
+test-results/
+playwright-report/
