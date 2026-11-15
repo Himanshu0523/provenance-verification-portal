@@ -17,3 +17,7 @@ class ConflictError(DomainError):
 class ValidationError(DomainError):
     status_code = 422
     code = "validation_error"
+    
+class PayloadTooLargeError(DomainError):
+    status_code = 413
+    code = "payload_too_large"

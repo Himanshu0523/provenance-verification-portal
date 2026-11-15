@@ -9,8 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@noble/ed25519": "^3.2.0",
-    "@noble/hashes": "^2.4.0",
+    "@noble/ed25519": "^2.3.0",
+    "@noble/hashes": "^1.8.0",
     "@xyflow/react": "^12.12.1",
     "axios": "^1.21.1",
     "lucide-react": "^1.73.0",

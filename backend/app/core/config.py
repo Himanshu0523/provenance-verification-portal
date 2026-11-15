@@ -1,4 +1,6 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file = ".env" , env_file_encoding = "utf-8",
@@ -23,6 +25,27 @@ class Settings(BaseSettings):
     @property
     def cors_origins_list(self) -> list[str]:
         return [o.strip() for o in self.cors_origins.split(",") if o.strip()]
+    
+    
+    # Uploads
+    max_upload_bytes: int = 20 * 1024 * 1024
+    allowed_mime_types: str = "image/png,image/jpeg,image/webp"
+    app_public_base_url: str = "http://localhost:8000"
+
+    # Storage
+    storage_provider: str = "local"            # "local" | "r2"
+    local_storage_dir: str = "storage"
+    local_storage_public_base: str = "/media"
+
+    r2_account_id: str = ""
+    r2_access_key_id: str = ""
+    r2_secret_access_key: str = ""
+    r2_bucket_name: str = ""
+    r2_endpoint_url: str = ""
+    
+    @property
+    def allowed_mime_set(self) -> set[str]:
+        return {m.strip() for m in self.allowed_mime_types.split(",") if m.strip()}    
     
 
 settings = Settings()

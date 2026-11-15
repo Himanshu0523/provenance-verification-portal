@@ -1,7 +1,7 @@
 import uuid
 from datetime import datetime
 from sqlalchemy import (
-    String, BigInteger, DateTime, ForeignKey, func, UniqueConstraint, Index,
+    String, BigInteger, DateTime, ForeignKey, func, UniqueConstraint, Index, Text,
 )
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -36,6 +36,15 @@ class MediaAsset(Base):
     asset_status: Mapped[str] = mapped_column(
         String(20), default="published", nullable=False
     )
+    client_created_at: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True), nullable=True,
+    )
+    signed_payload: Mapped[str | None] = mapped_column(Text, nullable=True)
+    signature: Mapped[str | None] = mapped_column(Text, nullable=True)
+    signer_key_id: Mapped[str | None] = mapped_column(
+        String(128), nullable=True, index=True,
+    )
+    
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now(), nullable=False
     )
