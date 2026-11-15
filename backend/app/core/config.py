@@ -36,6 +36,10 @@ class Settings(BaseSettings):
     storage_provider: str = "local"            # "local" | "r2"
     local_storage_dir: str = "storage"
     local_storage_public_base: str = "/media"
+    
+    # Verification
+    verify_max_bytes: int = 20 * 1024 * 1024
+    verify_audit_enabled: bool = True
 
     r2_account_id: str = ""
     r2_access_key_id: str = ""
